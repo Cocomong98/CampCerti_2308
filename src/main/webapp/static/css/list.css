@@ -1,0 +1,24 @@
+.container {
+    padding: 35px;
+}
+.btn-edit {
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+}
+.btn-delete {
+    color: red;
+    border: 2px solid red;
+}
+.btn-download {
+    color: yellowgreen;
+    border: 2px solid yellowgreen;
+}
+.footer {
+    text-align: center  ;
+    align-content: center;
+}
+.form-container{
+    text-align: center;
+    padding: 20px;
+}
+
