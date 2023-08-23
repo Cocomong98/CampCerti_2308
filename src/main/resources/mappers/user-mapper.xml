@@ -15,7 +15,7 @@
     </update>
     <!-- 학생 삭제 -->
     <delete id="deleteUser">
-        delete * from CERTIDB where ID = #{id}
+        delete from CERTIDB where ID = #{id}
     </delete>
     <!-- 학생 정보 개별로 불러오기 -->
     <select id="getOneUser" resultType="camp">

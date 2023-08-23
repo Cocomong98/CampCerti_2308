@@ -17,7 +17,7 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <!-- 웹사이트 이름 -->
                 <a>
-                    <h2>웹 서비스 캠프</h2>
+                    <h2>수료자 목록</h2>
                     <h5>정보를 확인하고 증명서를 발급받으세요</h5>
                 </a>
 
@@ -65,23 +65,25 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">이름</th>
                 <th scope="col">학번</th>
                 <th scope="col">학부</th>
+                <th scope="col">캠프명</th>
+                <th scope="col">캠프 기간</th>
                 <th scope="col">동작</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${userList}" var="user">
                 <tr>
-                    <th scope="row">${user.getId()}</th>
                     <td>${user.getName()}</td>
                     <td>${user.getS_id()}</td>
                     <td>${user.getMajor()}</td>
+                    <td>${user.getCamp()}</td>
+                    <td>${user.getP_start()} ~ ${user.getP_end()}</td>
                     <td>
                         <button class="btn-edit" onclick="location.href='/updateform/${user.getId()}'">수정</button>
-                        <button class="btn-delete">삭제</button>
+                        <button class="btn-delete" onclick="location.href='/delete/${user.getId()}'">삭제</button>
                         <button class="btn-download">다운로드</button>
                     </td>
                 </tr>

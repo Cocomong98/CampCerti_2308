@@ -23,8 +23,8 @@ public class CampDao {
         return result;
     }
 
-    public int deleteUser(CampVo vo) {
-        int result = sqlSession.delete("User.deleteUser", vo);
+    public int deleteUser(int id) {
+        int result = sqlSession.delete("User.deleteUser", id);
         return result;
     }
 
