@@ -61,6 +61,7 @@
             <a href="/addList">신규 추가</a>
         -->
         <button class="btn-edit" onclick="location.href='/form'">추가</button>
+        <button class="btn-edit" onclick="window.location.href='/pdf'">다운로드</button>
         <hr><br>
         <table class="table">
             <thead>
@@ -84,7 +85,7 @@
                     <td>
                         <button class="btn-edit" onclick="location.href='/updateform/${user.getId()}'">수정</button>
                         <button class="btn-delete" onclick="location.href='/delete/${user.getId()}'">삭제</button>
-                        <button class="btn-download">다운로드</button>
+                        <button class="btn-download" onclick="location.href='/pdf/${user.getId()}'">다운로드</button>
                     </td>
                 </tr>
             </c:forEach>
