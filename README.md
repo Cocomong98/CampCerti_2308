@@ -1,50 +1,9 @@
-# JSP Starter Kit
+# 캠프 수료증 발급 서비스
 
-## What is this?
+## 무엇에 대한 시스템인가?
 
-This is a starter kit for JSP projects. It includes a basic project structure to help you get started.
+캠프 수료자 정보를 입력하면, 그에 맞춰 수료증을 PDF로 제작
 
-## What's included?
-
-```text
-.
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── jspstarter
-    │   │               ├── JspStarterApplication.java
-    │   │               ├── ServletInitializer.java
-    │   │               └── controller
-    │   │                   └── DemoController.java
-    │   ├── resources
-    │   │   ├── application-dev.properties
-    │   │   └── application.properties
-    │   └── webapp
-    │       ├── WEB-INF
-    │       │   ├── views
-    │       │   │   └── index.jsp
-    │       │   └── web.xml
-    │       └── static
-    │           ├── css
-    │           │   └── style.css
-    │           ├── image
-    │           │   └── fish.png
-    │           └── js
-    │               └── script.js
-    └── test
-        └── java
-            └── com
-                └── example
-                    └── jspstarter
-                        └── JspStarterApplicationTests.java
 ```
 
 The following dependencies are included:
