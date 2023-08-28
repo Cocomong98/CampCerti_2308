@@ -27,6 +27,8 @@ public class PdfDownView extends AbstractPdfView {
 
         BaseFont bfKorea = BaseFont.createFont("/Users/cocomong_98/IdeaProjects/CampCerti_2308/src/main/webapp/static/font/ChosunCentennial_ttf.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         Font font = new Font(bfKorea, 20);
+        Font head = new Font(bfKorea, 40);
+        Font data = new Font(bfKorea, 15);
 
         PdfContentByte canvas = writer.getDirectContentUnder();
         Image backgroundImage = Image.getInstance("/Users/cocomong_98/IdeaProjects/CampCerti_2308/src/main/webapp/static/image/border.png"); // 배경 이미지 경로
@@ -47,7 +49,7 @@ public class PdfDownView extends AbstractPdfView {
         doc.add(emptySpace1);
 
         doc.setMargins(0, 0, 70, 70);
-        Paragraph title = new Paragraph("캠프 수료 증명서 발급", font);
+        Paragraph title = new Paragraph("수료증", head);
         title.setSpacingAfter(30);
         title.setAlignment(Element.ALIGN_CENTER);
         doc.add(title);
@@ -57,16 +59,18 @@ public class PdfDownView extends AbstractPdfView {
         firstColumn.setAlignment(Element.ALIGN_CENTER);
         firstColumn.setFont(font);
 
-        firstColumn.add("캠프명\n");
-        firstColumn.add("수료 캠프 이름 공간\n");
-
         // Set up content for the second column (right top)
         Paragraph secondColumn = new Paragraph();
-        secondColumn.setAlignment(Element.ALIGN_CENTER);
-        secondColumn.setFont(font);
+        secondColumn.setAlignment(Element.ALIGN_LEFT);
+        secondColumn.setFont(data);
 
-        secondColumn.add("수료자명\n");
-        secondColumn.add(user.getName());
+        secondColumn.add("캠프명 : " + user.getCamp());
+        secondColumn.add(" " + "\n\n");
+        secondColumn.add("캠프기간 : " +user.getP_start() + " ~ " + user.getP_end());
+        secondColumn.add(" " + "\n\n");
+        secondColumn.add("전공 : " + user.getMajor() + "\n");
+        secondColumn.add(" " + "\n");
+        secondColumn.add("이름 : " + user.getName());
 
         // Create a table with two columns
         PdfPTable table = new PdfPTable(2);
@@ -94,7 +98,7 @@ public class PdfDownView extends AbstractPdfView {
         emptySpace2.setSpacingBefore(80); // 여백길이는 80
         doc.add(emptySpace2);
 
-        Paragraph userData = new Paragraph("수료자명: " + user.getName(), font);
+        Paragraph userData = new Paragraph("위 학생은 <" + user.getCamp() + "> 과정을 수료하였음을 인증함\n\n\n한동대학교",font);
         userData.setAlignment(Element.ALIGN_CENTER);
         userData.setSpacingBefore(10);
         doc.add(userData);
