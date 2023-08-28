@@ -17,8 +17,8 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <!-- 웹사이트 이름 -->
                 <a>
-                    <h2>수료자 목록</h2>
-                    <h5>정보를 확인하고 증명서를 발급받으세요</h5>
+                    <h2>웹 서비스 캠프</h2>
+                    <h5>2023.07.10 ~ 2023.08.10</h5>
                 </a>
 
                 <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
@@ -32,7 +32,7 @@
                         <a href="#" class="nav-link text-secondary text-center">
                             <div class="d-flex flex-column align-items-center">
                                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <img style="width: 50px; height: 50px; padding: 1px;" src="${context}/static/image/camp2.png" alt="camp">
+                                    <img onclick="location.href='/'" style="width: 50px; height: 50px; padding: 1px;" src="${context}/static/image/camp2.png" alt="camp">
                                 </svg>
                                 <span>전체 캠프 보기</span>
                             </div>
@@ -69,8 +69,6 @@
                 <th scope="col">이름</th>
                 <th scope="col">학번</th>
                 <th scope="col">학부</th>
-                <th scope="col">캠프명</th>
-                <th scope="col">캠프 기간</th>
                 <th scope="col">동작</th>
             </tr>
             </thead>
@@ -80,8 +78,6 @@
                     <td>${user.getName()}</td>
                     <td>${user.getS_id()}</td>
                     <td>${user.getMajor()}</td>
-                    <td>${user.getCamp()}</td>
-                    <td>${user.getP_start()} ~ ${user.getP_end()}</td>
                     <td>
                         <button class="btn-edit" onclick="location.href='/updateform/${user.getId()}'">수정</button>
                         <button class="btn-delete" onclick="location.href='/delete/${user.getId()}'">삭제</button>
@@ -96,7 +92,7 @@
 
 <footer class="footer">
     <p>2023_SUM Miniproject</p>
-    <p>Copyright © 2023 <b>WALAB</b> All rights reserved.</p>
+    <p>Copyright © 2023 <b>Cocomong98</b> All rights reserved.</p>
 </footer>
 
 

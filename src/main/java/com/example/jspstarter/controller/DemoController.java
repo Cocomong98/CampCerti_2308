@@ -12,10 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class DemoController {
@@ -97,46 +94,29 @@ public class DemoController {
         return "redirect:/camp";
     }
 
-
-    //@GetMapping("/pdf")
-//    @RequestMapping(value="pdf", method=RequestMethod.GET)
-//    public String pdf(Model model){
-//
-//        System.out.print("pdf를 통해 출력으로 이동");
-//
+//    @RequestMapping(value = "pdf", method = RequestMethod.GET)
+//    public ModelAndView pdf() {
 //        List<String> list = new ArrayList<String>();
-//        list.add("Java");
-//        list.add("파이썬");
-//        list.add("R");
-//        list.add("C++");
-//        list.add("자바스크립트");
-//        list.add("Ruby");
-//        list.add("스칼라");
-//        list.add("클로져");
-//        list.add("자바");
+//        list.add("위 학생은 성실히 캠프에 참여했기에 수료증을 드립니다");
 //
-//        //뷰에게 전달할 데이터 저장
-//        model.addAttribute("list",list);
+//        Map<String, Object> model = new HashMap<>();
+//        model.put("list", list);
 //
-//        //출력할 뷰 이름 리턴
-//        return "pdf";
+//        return new ModelAndView(new PdfDownView(), model);
 //    }
-    @RequestMapping(value = "pdf", method = RequestMethod.GET)
-    public ModelAndView pdf() {
-        List<String> list = new ArrayList<String>();
-        list.add("캠프 수료증");
-        list.add("캠프명");
-        list.add("웹 서비스 캠프");
-        list.add("수료자명");
-        list.add("김수료");
-        list.add("캠프 기간");
-        list.add("230610~230810");
-        list.add("한동대학교");
+
+    @GetMapping("/pdf/{id}")
+    public ModelAndView pdf(@PathVariable("id") int id) {
+        CampVo user = campDao.getOneUser(id);
 
         Map<String, Object> model = new HashMap<>();
-        model.put("list", list);
+        model.put("user", user);
 
         return new ModelAndView(new PdfDownView(), model);
     }
+
+
+
+
 
 }

@@ -107,7 +107,7 @@
 
     <footer class="footer">
         <p>2023_SUM Miniproject</p>
-        <p>Copyright © 2023 <b>WALAB</b> All rights reserved.</p>
+        <p>Copyright © 2023 <b>Cocomong98</b> All rights reserved.</p>
     </footer>
 
 
