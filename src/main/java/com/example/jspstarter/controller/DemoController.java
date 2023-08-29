@@ -3,6 +3,7 @@ package com.example.jspstarter.controller;
 import com.example.jspstarter.Dao.CampDao;
 import com.example.jspstarter.Vo.CampVo;
 import com.example.jspstarter.view.PdfDownView;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Controller
+@Slf4j
 public class DemoController {
 
     @Autowired
@@ -59,12 +61,6 @@ public class DemoController {
         return "redirect:/camp";
     }
 
-    @GetMapping("/downLogs")
-    public String downLogs() {
-        System.out.println("downlogs 이동");
-        return "downLogs";
-    }
-
     @GetMapping("/camp")
     public String camp(Model model) {
         model.addAttribute("userList",campDao.getAllUser());
@@ -94,17 +90,6 @@ public class DemoController {
         return "redirect:/camp";
     }
 
-//    @RequestMapping(value = "pdf", method = RequestMethod.GET)
-//    public ModelAndView pdf() {
-//        List<String> list = new ArrayList<String>();
-//        list.add("위 학생은 성실히 캠프에 참여했기에 수료증을 드립니다");
-//
-//        Map<String, Object> model = new HashMap<>();
-//        model.put("list", list);
-//
-//        return new ModelAndView(new PdfDownView(), model);
-//    }
-
     @GetMapping("/pdf/{id}")
     public ModelAndView pdf(@PathVariable("id") int id) {
         CampVo user = campDao.getOneUser(id);
@@ -112,11 +97,34 @@ public class DemoController {
         Map<String, Object> model = new HashMap<>();
         model.put("user", user);
 
+        System.out.println("PDF 만드는 중...");
+
+        log.info("User information: {}", user);
+
+        System.out.println("여기까지가 로그");
+
         return new ModelAndView(new PdfDownView(), model);
     }
 
+    @GetMapping("/downLogs")
+    public String logAndRedirect(Model model) {
+        log.trace("trace message");
+        log.debug("debug message");
+        log.info("info message"); // default
+        log.warn("warn message");
+        log.error("error message");
 
+        List<String> logMessages = new ArrayList<>();
+        logMessages.add("trace message");
+        logMessages.add("debug message");
+        logMessages.add("info message");
+        logMessages.add("warn message");
+        logMessages.add("error message");
+        model.addAttribute("logMessages", logMessages);
 
+        // /downLogs 로 리다이렉트
+        return "downLogs";
+    }
 
 
 }

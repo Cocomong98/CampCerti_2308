@@ -61,7 +61,6 @@
             <a href="/addList">신규 추가</a>
         -->
         <button class="btn-edit" onclick="location.href='/form'">추가</button>
-        <button class="btn-edit" onclick="window.location.href='/pdf'">다운로드</button>
         <hr><br>
         <table class="table">
             <thead>

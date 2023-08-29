@@ -29,6 +29,7 @@ public class PdfDownView extends AbstractPdfView {
         Font font = new Font(bfKorea, 20);
         Font head = new Font(bfKorea, 40);
         Font data = new Font(bfKorea, 15);
+        Font tail = new Font(bfKorea, 30);
 
         PdfContentByte canvas = writer.getDirectContentUnder();
         Image backgroundImage = Image.getInstance("/Users/cocomong_98/IdeaProjects/CampCerti_2308/src/main/webapp/static/image/border.png"); // 배경 이미지 경로
@@ -48,7 +49,7 @@ public class PdfDownView extends AbstractPdfView {
         emptySpace1.setSpacingAfter(100); // 여백길이는 80
         doc.add(emptySpace1);
 
-        doc.setMargins(0, 0, 70, 70);
+        doc.setMargins(0, 0, 60, 60);
         Paragraph title = new Paragraph("수료증", head);
         title.setSpacingAfter(30);
         title.setAlignment(Element.ALIGN_CENTER);
@@ -98,10 +99,15 @@ public class PdfDownView extends AbstractPdfView {
         emptySpace2.setSpacingBefore(80); // 여백길이는 80
         doc.add(emptySpace2);
 
-        Paragraph userData = new Paragraph("위 학생은 <" + user.getCamp() + "> 과정을 수료하였음을 인증함\n\n\n한동대학교",font);
-        userData.setAlignment(Element.ALIGN_CENTER);
-        userData.setSpacingBefore(10);
-        doc.add(userData);
+        Paragraph text = new Paragraph("위 학생은 <" + user.getCamp() + "> 과정을 수료하였음을 인증함\n\n\n",font);
+        text.setAlignment(Element.ALIGN_CENTER);
+        text.setSpacingBefore(10);
+        doc.add(text);
+
+        Paragraph handong = new Paragraph("한동대학교",tail);
+        handong.setAlignment(Element.ALIGN_CENTER);
+        handong.setSpacingBefore(10);
+        doc.add(handong);
 
         doc.close(); // Close the document
     }
