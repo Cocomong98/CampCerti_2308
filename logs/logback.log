@@ -1,0 +1,2 @@
+[2023-09-07 12:55:46:40137] INFO  84538 --- [nio-8080-exec-9] c.e.j.controller.DemoController          : User information: com.example.jspstarter.Vo.CampVo@6ea9cbcb
+[2023-09-07 12:58:38:211917] INFO  84538 --- [nio-8080-exec-3] c.e.j.controller.DemoController          : User information: com.example.jspstarter.Vo.CampVo@54628e2d
